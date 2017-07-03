@@ -1,0 +1,8 @@
+version: "2"
+services:
+  ghostscript:
+    build: .
+    volumes:
+      - /development/ghostscript-deb/trusty/out:/out
+      
+    
