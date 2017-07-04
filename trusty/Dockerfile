@@ -22,6 +22,8 @@ RUN make install DESTDIR=/tmp/out
 
 CMD ls -al /tmp/out
 
-CMD fpm -s dir -t deb -n ghostscript -v 9.21-trusty-talis -C /tmp/out -p ghostscript_VERSION_ARCH.deb \
+CMD fpm -s dir -t deb -n ghostscript -v 9.21-trusty-talis2 -C /tmp/out -p ghostscript_VERSION_ARCH.deb \
+    -d "libcupsimage2 (>=0)"
+    -d "libpaper1 (>=0)"
     --deb-shlibs \
     usr/local && cp *.deb /out
