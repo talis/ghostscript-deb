@@ -22,14 +22,6 @@ RUN make install DESTDIR=/tmp/out
 
 CMD ls -al /tmp/out
 
-#\CMD fpm -s dir -t deb -n imagemagick -v 6.9.7-10-trusty-talis -C /tmp/out -p imagemagick_VERSION_ARCH.deb \
-#    -d "libdjvulibre-dev (>=0)" \
-#    -d "libwmf-dev (>=0)" \
-#    -d "libopenexr-dev (>=0)" \
-#    -d "libpango1.0-dev (>=0)" \
-#    -d "libc6 (>=0)" \
-#    -d "libmagickcore5 (>=0)" \
-#    -d "libmagickwand5 (>=0)" \
-#    -d "hicolor-icon-theme (>=0)" \
-#    --deb-shlibs \
-#    usr/local && cp *.deb /out
+CMD fpm -s dir -t deb -n ghostscript -v 9.21-trusty-talis -C /tmp/out -p ghostscript_VERSION_ARCH.deb \
+    --deb-shlibs \
+    usr/local && cp *.deb /out
