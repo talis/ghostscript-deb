@@ -1,0 +1,26 @@
+version: 2
+executorType: machine
+stages:
+  build:
+    workDir: ~/ghostscript-deb
+    steps:
+      - type: shell
+        name: Prep /development
+        command: |
+          sudo mkdir /development
+          sudo chmod 777 /development
+          ln -s /home/circleci/ghostscript-deb /development/ghostscript-deb
+      - type: checkout
+      - type: shell
+        name: Build image
+        command: |
+          cd trusty
+          docker-compose build
+          docker-compose run ghostscript
+      - type: shell
+        name: Show tree
+        command: sudo apt-get install -y tree && tree
+#      - type: shell
+#        name: Upload package
+#        command: aws s3 cp ~/imagemagick-deb/trusty/out/imagemagick_6.9.7-10-trusty-talis_amd64.deb s3://aspire-operations/binaries/aptly/trusty/imagemagick_6.9.7-10-trusty-talis_amd64.deb
+
