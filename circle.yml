@@ -23,3 +23,4 @@ stages:
       - type: shell
         name: Upload package
         command: aws s3 cp ~/ghostscript-deb/trusty/out/ghostscript_9.21-trusty-talis_amd64.deb s3://aspire-operations/binaries/aptly/trusty/ghostscript_9.21-trusty-talis_amd64.deb
+
